@@ -10,12 +10,13 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  public currentUserSubject: BehaviorSubject<LoginResponse>;
-  public currentUser: Observable<LoginResponse>;
+  public currentUserSubject: BehaviorSubject<string>;
+  public currentUser: Observable<string>;
   constructor(
     private router: Router,
     private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<LoginResponse>(JSON.parse(localStorage.getItem('currentUser')));
+    // console.log(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUserSubject = new BehaviorSubject<string>(localStorage.getItem('currentUser'));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -38,7 +39,7 @@ export class AuthenticationService {
   }
 
   // return info of the current users
-  public get currentUserValue(): LoginResponse {
+  public get currentUserValue(): string {
     return this.currentUserSubject.value;
   }
 

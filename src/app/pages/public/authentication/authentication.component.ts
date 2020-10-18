@@ -22,10 +22,14 @@ export class AuthenticationComponent implements OnInit {
     public cryptoService: CryptoService,
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+  ) {
+    const currentUser = this.authenticationService.currentUserValue;
+    if (currentUser) {
+      this.router.navigate(['/dashboard']);
+    }
+  }
 
   ngOnInit() {
-
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
@@ -40,7 +44,6 @@ export class AuthenticationComponent implements OnInit {
     }
     this.authenticationService.login(this.loginForm.value).subscribe(data => {
       const result: any = data;
-      console.log(result.cookie);
       const encryptedResp = this.cryptoService.Encrypt(JSON.stringify(result.cookie));
       localStorage.setItem('currentUser', encryptedResp);
       this.authenticationService.currentUserSubject.next(JSON.parse(this.cryptoService.Decrypt(encryptedResp)));
@@ -48,6 +51,5 @@ export class AuthenticationComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-    console.log(this.loginForm.value);
   }
 }
