@@ -4,8 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
+
 @NgModule({
-  imports: [RouterModule],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
   exports: [RouterModule]
 })
 export class DashboardRoutingModule { }
