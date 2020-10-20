@@ -1,0 +1,13 @@
+
+<div class="container">
+    <div class="row align-item" *ngFor="let item of listPosts">
+      <div class="card" >
+        <img class="card-img-top" [src]="item.photo" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <!-- <p class="card-text" text-nowrap> {{item.content}}</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
