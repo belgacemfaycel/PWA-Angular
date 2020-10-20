@@ -8,6 +8,8 @@ import { SearchComponent } from './search/search.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AboutComponent } from './about/about.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { FormsModule } from '@angular/forms';
+import { DataService } from './../../_services/data.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
   imports: [
     DashboardRoutingModule,
     CommonModule,
-
-  ]
+    FormsModule
+  ],
+  providers: [DataService]
 })
 export class DashboardModule { }

@@ -1,0 +1,11 @@
+.align-item{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 1em;
+}
+
+ .card{
+     width: 75vh;
+     padding: 1em
+ }

@@ -8,6 +8,6 @@ footer{
         color: rgba(0,0,0,0.5);
     }
 li{
-    padding-left :1vh;
-    padding-right: 1vh;
+    padding-left :0.5vh;
+    padding-right: 0.5vh;
 }

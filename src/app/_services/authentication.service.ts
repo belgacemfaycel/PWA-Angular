@@ -47,10 +47,10 @@ export class AuthenticationService {
     this.currentUserSubject.next(JSON.parse(localStorage.getItem('currentUser')));
   }
 
-  _Logout(url, returnUrl) {
+  _Logout() {
     // After clearing localStorage redirect to login screen
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-    this.router.navigate([url ? url : '/authentication'], { queryParams: { returnUrl } });
+
   }
 }

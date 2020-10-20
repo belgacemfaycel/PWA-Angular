@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { DataService } from '../../../_services/data.service';
+
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,8 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   title = 'Home';
-  constructor(private router: Router) {
+  text = '';
+  constructor(private router: Router, private data: DataService) {
     router.events.subscribe((val) => {
       // see also
 
@@ -37,6 +40,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  searchItem() {
+    this.data.changeMessage(this.text);
   }
 
 }
