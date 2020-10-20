@@ -1,3 +1,55 @@
-<p>
-  footer works!
-</p>
+<footer class="bg-light">
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard/home" active>
+        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z" />
+          <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+        </svg>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard/search">
+        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+          <path fill-rule="evenodd"
+            d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+        </svg>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard/notification">
+        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-bell-fill" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+        </svg>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard/about">
+        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+          <path
+            d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
+          <circle cx="8" cy="4.5" r="1" />
+        </svg>
+      </a>
+    </li>
+    <li class="nav-item" (click)="logout()">
+      <a class="nav-link"  >
+        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-door-closed" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z" />
+          <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z" />
+        </svg>
+      </a>
+    </li>
+  </ul>
+</footer>
