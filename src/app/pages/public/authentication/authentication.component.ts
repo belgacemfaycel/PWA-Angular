@@ -45,7 +45,9 @@ export class AuthenticationComponent implements OnInit {
     this.authenticationService.login(this.loginForm.value).subscribe(data => {
       const result: any = data;
       const encryptedResp = this.cryptoService.Encrypt(JSON.stringify(result.cookie));
+      const encryptedUser = this.cryptoService.Encrypt(JSON.stringify(result));
       localStorage.setItem('currentUser', encryptedResp);
+      localStorage.setItem('user', encryptedUser);
       this.authenticationService.currentUserSubject.next(JSON.parse(this.cryptoService.Decrypt(encryptedResp)));
       this.router.navigate(['/dashboard']);
     }, error => {

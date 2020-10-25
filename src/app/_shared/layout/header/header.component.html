@@ -1,8 +1,9 @@
 <nav class="navbar navbar-light bg-light" *ngIf="title !== 'Search'">
   <a class="navbar-brand">
-    <img src="../../../../assets//profile_icon.png" width="30" height="30" alt="">
+    <img src="../../../../assets/profile_icon.png" width="30" height="30" alt="">
     {{title}}
   </a>
+  <img *ngIf="title == 'Home'" (click)="addPost()" src="../../../../assets/add_post.png" width="30" height="30" alt="">
 
 </nav>
 
