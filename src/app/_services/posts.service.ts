@@ -35,10 +35,12 @@ export class PostsService {
     });
   }
   // upload file
-  uploadFile(params) {
-    return this.http.post(`${environment.apiUrl}` + APIS.POSTS.ALL + '/file', params, {
+  uploadFile(fileToUpload: FormData) {
+
+    return this.http.post(`${environment.apiUrl}` + APIS.POSTS.ALL + '/file', fileToUpload, {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json; charset=utf-8',
+        //   'Accept': 'application/json',
+        // 'Content-Type': 'multipart/form-data',
       })
     });
   }

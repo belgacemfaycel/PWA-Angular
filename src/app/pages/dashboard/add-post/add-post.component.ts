@@ -18,16 +18,15 @@ export class AddPostComponent implements OnInit {
 
   ngOnInit() {
     const user = JSON.parse(this.cryptoService.Decrypt(localStorage.getItem('user')));
-    console.log(user);
     this.postForm = this.formBuilder.group({
       content: ['', Validators.required],
       title: ['', Validators.required],
-      creator_id: [user.id]
+      creator_id: [user.id],
+      filename: ['default'],
     });
   }
   handleFileInput(files: FileList) {
     this.fileToUpload = files.item(0);
-    console.log(this.fileToUpload);
   }
 
 
@@ -38,8 +37,16 @@ export class AddPostComponent implements OnInit {
       return;
     }
     if (this.fileToUpload) {
-      this.postsService.uploadFile(this.fileToUpload).subscribe(response => {
-        console.log(response);
+      const formData: FormData = new FormData();
+      formData.append('image', this.fileToUpload, this.fileToUpload.name);
+      this.postsService.uploadFile(formData).subscribe(response => {
+        const result: any = response;
+        this.postForm.controls.filename.setValue(result.filename);
+        this.postsService.addPosts(this.postForm.value).subscribe(data => {
+          console.log(data);
+        }, error => {
+          console.log(error);
+        });
       }, error => {
         console.log(error);
       });
