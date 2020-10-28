@@ -43,7 +43,6 @@ export class AddPostComponent implements OnInit {
         const result: any = response;
         this.postForm.controls.filename.setValue(result.filename);
         this.postsService.addPosts(this.postForm.value).subscribe(data => {
-          console.log(data);
         }, error => {
           console.log(error);
         });

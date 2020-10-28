@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
       // see also
 
       if (val instanceof NavigationEnd) {
-        console.log(val.url);
+
         switch (val.url) {
           case '/dashboard/home':
             this.title = 'Home';
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
           case '/dashboard/about':
             this.title = 'About';
             break;
-            case '/dashboard/addPost':
+          case '/dashboard/addPost':
             this.title = 'Add post';
             break;
           default:

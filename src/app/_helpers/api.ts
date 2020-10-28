@@ -6,5 +6,8 @@ export const APIS: any = {
     POSTS: {
         ALL: 'posts',
         SEARCH: 'posts/search/',
+    },
+    NOTIFICATIONS: {
+        ALL: 'notification',
     }
 };

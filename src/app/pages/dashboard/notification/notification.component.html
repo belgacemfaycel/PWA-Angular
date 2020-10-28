@@ -1,3 +1,9 @@
 <div class="container">
-
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of listNotif">
+            {{item.notificationText}}
+            <br>
+            <strong>{{item.created_time | date:'dd/MM/yyyy - HH:mm:ss'}}</strong>
+        </li>
+    </ul>
 </div>
