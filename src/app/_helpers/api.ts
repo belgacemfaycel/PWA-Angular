@@ -9,5 +9,8 @@ export const APIS: any = {
     },
     NOTIFICATIONS: {
         ALL: 'notification',
+    },
+    NEWSLETTER: {
+        SEND: 'push-subscription',
     }
 };

@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { JwtInterceptor } from './_helpers/jwt-interceptor';
 import { SpinnerInterceptor } from './_helpers/spinner-interceptor';
 import { ErrorInterceptor } from './_helpers/error-interceptor';
-
+import { NewsletterService } from './_services/newsletter.service';
 
 
 @NgModule({
@@ -23,9 +23,11 @@ import { ErrorInterceptor } from './_helpers/error-interceptor';
     DashboardModule,
     HttpClientModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true}),
+    // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
+    NewsletterService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
