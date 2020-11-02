@@ -10,17 +10,20 @@ export class JwtInterceptor implements HttpInterceptor {
     constructor(private authenticationService: AuthenticationService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        request = request.clone({
-            setHeaders: {
-                'Content-Type': 'Application/json',
-            }
-        });
+        if (!request.url.includes('/posts/file')) {
+            request = request.clone({
+                setHeaders: {
+                    'Content-Type': 'Application/json',
+                }
+            });
+        }
+
         // add authorization header with jwt token if available
         // const currentUser = this.authenticationService.currentUserValue;
-        // if (currentUser && currentUser.accessToken) {
+        // if (currentUser) {
         //     request = request.clone({
         //         setHeaders: {
-        //             Authorization: `Bearer ${currentUser.accessToken}`,
+        //             Cookie: ` ${currentUser}`,
         //         }
         //     });
         // }
