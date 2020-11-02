@@ -8,8 +8,10 @@ import { SearchComponent } from './search/search.component';
 import { NotificationComponent } from './notification/notification.component';
 import { AboutComponent } from './about/about.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from './../../_services/data.service';
+import { AddPostComponent } from './add-post/add-post.component';
+import { UpdatePostComponent } from './update-post/update-post.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { DataService } from './../../_services/data.service';
     HomeComponent,
     SearchComponent,
     NotificationComponent,
-    AboutComponent
-
+    AboutComponent,
+    AddPostComponent,
+    UpdatePostComponent
   ],
   imports: [
     DashboardRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DataService]
 })
