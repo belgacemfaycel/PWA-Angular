@@ -1,13 +1,11 @@
-<nav class="navbar navbar-light bg-light" *ngIf="title !== 'Search'">
+<nav class="navbar navbar-light bg-light" *ngIf="title !== 'Home'">
   <a class="navbar-brand">
     <img src="../../../../assets/profile_icon.png" width="30" height="30" alt="">
     {{title}}
   </a>
-  <img *ngIf="title == 'Home'" (click)="addPost()" src="../../../../assets/add_post.png" width="30" height="30" alt="">
-
 </nav>
 
-<nav class="navbar navbar-light bg-light " *ngIf="title == 'Search'">
+<nav class="navbar navbar-light bg-light " *ngIf="title == 'Home'">
   <a class="navbar-brand"><img src="../../../../assets//profile_icon.png" width="30" height="30" alt=""></a>
   <form class="form-inline">
     <input class="form-control mr-sm-2" (keyup)="searchItem()" type="search" [(ngModel)]="text" [ngModelOptions]="{standalone: true}" placeholder="Search"

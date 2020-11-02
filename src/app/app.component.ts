@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NewsletterService } from './_services/newsletter.service';
 import { SwPush } from '@angular/service-worker';
 @Component({
@@ -6,21 +6,26 @@ import { SwPush } from '@angular/service-worker';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  readonly VAPID_PUBLIC_KEY = 'BIuGZJc5_8n-fkhEDYNYiIFwyH0Bin-yHSCQbMOXSRtGlx0RzA6Sx1H9ko1afIbc7PldIxoZ3UQXDpoN_c90M7w';
+  readonly VAPID_PUBLIC_KEY = 'BMs5BkLftBIYqjL4r99k0u6cM3L8eMZFZrIolitBeyUP8y87EBO6Ob9L_qAUJLQofTqyRveWAeZq2vzftrSMHBo';
   constructor(
     private swPush: SwPush,
     private newsletterService: NewsletterService) {
+
+  }
+  ngOnInit() {
     this.subscribeToNotifications();
   }
-
   subscribeToNotifications() {
-    console.log('here');
     this.swPush.requestSubscription({
       serverPublicKey: this.VAPID_PUBLIC_KEY
     })
-      .then(sub => this.newsletterService.addPushSubscriber(sub).subscribe())
+      .then(sub => {
+        console.log(sub);
+        this.newsletterService.addPushSubscriber(sub).subscribe();
+      }
+      )
       .catch(err => console.error('Could not subscribe to notifications', err));
   }
 
